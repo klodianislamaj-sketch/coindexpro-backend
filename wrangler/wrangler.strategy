@@ -1,0 +1,25 @@
+# ============================================================================
+# wrangler.strategy.toml — CoinDex Pro strategy worker (Phase 8)
+# Shares the SAME D1 as the other workers.
+# Apply migration first:  wrangler d1 execute coindex-db --file=0013_strategy.sql
+# Deploy:  wrangler deploy --config wrangler.strategy.toml
+# ============================================================================
+
+name = "coindex-strategy"
+main = "strategy-worker.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+SIGNALS_URL = ""
+CONVICTION_URL = ""
+EXECUTION_URL = ""
+ALLOCATION_URL = ""
+LEARNING_URL = ""
+
+# [triggers]
+# crons = ["*/10 * * * *"]
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"

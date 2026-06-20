@@ -1,0 +1,27 @@
+# ============================================================================
+# wrangler.execution.toml — CoinDex Pro execution worker (Phase 5C)
+# Shares the SAME D1 + KV as the other workers.
+# Apply migration first:  wrangler d1 execute coindex-db --file=0010_execution.sql
+# Deploy:  wrangler deploy --config wrangler.execution.toml
+# ============================================================================
+
+name = "coindex-execution"
+main = "execution-worker.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+SIGNALS_URL = ""
+CONVICTION_URL = ""
+ANALYTICS_URL = ""
+
+# [triggers]
+# crons = ["*/10 * * * *"]
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"
+
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "REPLACE_WITH_REAL_KV_NAMESPACE_ID"

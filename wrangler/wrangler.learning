@@ -1,0 +1,15 @@
+# ============================================================================
+# wrangler.learning.toml — CoinDex Pro learning worker (Phase 7)
+# Shares the SAME D1 as the other workers.
+# Apply migration first:  wrangler d1 execute coindex-db --file=0012_learning.sql
+# Deploy:  wrangler deploy --config wrangler.learning.toml
+# ============================================================================
+
+name = "coindex-learning"
+main = "learning-worker.js"
+compatibility_date = "2024-09-23"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"

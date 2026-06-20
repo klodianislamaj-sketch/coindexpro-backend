@@ -1,0 +1,18 @@
+# ============================================================================
+# wrangler.metrics.toml — CoinDex Pro metrics worker (Phase 3D)
+# Shares the SAME D1 + KV as the other workers.
+# Deploy:  wrangler deploy --config wrangler.metrics.toml
+# ============================================================================
+
+name = "coindex-metrics"
+main = "metrics-worker.js"
+compatibility_date = "2024-09-23"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"
+
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "REPLACE_WITH_REAL_KV_NAMESPACE_ID"

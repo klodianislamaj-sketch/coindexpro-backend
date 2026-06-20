@@ -1,0 +1,20 @@
+# ============================================================================
+# wrangler.analytics.toml — CoinDex Pro analytics worker (Phase 3D)
+# Shares the SAME D1 database + KV namespace as the other workers.
+# Deploy:  wrangler deploy --config wrangler.analytics.toml
+# ============================================================================
+
+name = "coindex-analytics"
+main = "analytics-worker.js"
+compatibility_date = "2024-09-23"
+
+# ---- shared D1 binding (env.DB) -- same database_id as the main worker ------
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"
+
+# ---- shared KV binding (env.CACHE) -- same id as the main worker -----------
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "REPLACE_WITH_REAL_KV_NAMESPACE_ID"

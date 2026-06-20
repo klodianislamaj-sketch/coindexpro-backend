@@ -1,0 +1,28 @@
+# ============================================================================
+# wrangler.conviction.toml — CoinDex Pro conviction worker (Phase 5B)
+# Shares the SAME D1 + KV as the other workers.
+# Apply migration first:  wrangler d1 execute coindex-db --file=0009_conviction.sql
+# Deploy:  wrangler deploy --config wrangler.conviction.toml
+# ============================================================================
+
+name = "coindex-conviction"
+main = "conviction-worker.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+ANALYTICS_URL = ""
+SEARCH_URL = ""
+FLOWS_URL = ""
+CORE_URL = ""
+
+# [triggers]
+# crons = ["*/10 * * * *"]
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"
+
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "REPLACE_WITH_REAL_KV_NAMESPACE_ID"

@@ -1,0 +1,28 @@
+# ============================================================================
+# wrangler.search.toml — CoinDex Pro search worker (Phase 3B)
+# Shares the SAME D1 database + KV namespace as the main worker.
+# Deploy:  wrangler deploy --config wrangler.search.toml
+# Set the admin secret:  wrangler secret put ADMIN_KEY --config wrangler.search.toml
+# ============================================================================
+
+name = "coindex-search"
+main = "search-worker.js"
+compatibility_date = "2024-09-23"
+
+# Rebuild the KV search index every 10 minutes.
+# [triggers]
+# crons = ["*/10 * * * *"]
+
+# ---- shared D1 binding (env.DB) -- same database_id as the main worker ------
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "coindex-db"
+# database_id = "REPLACE_WITH_REAL_D1_DATABASE_ID"
+
+# ---- shared KV binding (env.CACHE) -- same id as the main worker -----------
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "REPLACE_WITH_REAL_KV_NAMESPACE_ID"
+
+# ---- secret (set via wrangler secret put, never committed) ------------------
+#   ADMIN_KEY  -> protects POST /api/search/rebuild
